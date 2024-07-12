@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital-click</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="display">
+           <div id="time"></div>
+        </div>
+        <span></span>
+        <span></span>
+     </div>
+
+    <script>
+
+        // way 1
+           const time = document.querySelector("#time");
+         setInterval(()=>{
+           let date = new Date();
+           let hours = date.getHours();
+           let minutes = date.getMinutes();
+           let seconds = date.getSeconds();
+           let day_night = "AM";
+           if(hours > 12){
+             day_night = "PM";
+             hours = hours - 12;
+           }
+           if(seconds < 10){
+             seconds = "0" + seconds;
+           }
+           if(minutes < 10){
+             minutes = "0" + minutes;
+           }
+           if(hours < 10){
+             hours = "0" + hours;
+           }
+           time.textContent = `${hours}:${minutes}:${seconds}  ${day_night}`;
+         });
+
+         // way 2
+
+        // const date = new Date()
+        // let hour = date.getHours()
+        // let min = date.getMinutes()
+        // let sec = date.getSeconds()
+
+        // setInterval(() => {
+
+        //     sec += 1
+
+        //     if(sec == 60){
+        //         min += 1;
+        //         sec = 0;
+        //     }
+        //     if (hour == 24 ){
+        //         min = 0;
+        //         hour +=1 ;
+        //     }
+        //     if (hour > 12 ){
+        //         hour = hour - 12;
+        //     }
+
+        //     console.log(hour , min , sec)
+
+        //     time.innerHTML = `${hour} : ${min} : ${sec} `
+            
+        // }, 1000);
+
+
+
+    </script>
+</body>
+</html>
